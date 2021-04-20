@@ -9,11 +9,11 @@
   <body>
     <h1>Stwórz swoją pizze!</h1>
     <img th:src="@{/images/pizzaspring.png}"/>
-        
+
     <form method="POST" th:object="${design}">
 
     <span class="validationError"
-          th:if="${#fields.hasErrors('ingredients')}" 
+          th:if="${#fields.hasErrors('ingredients')}"
           th:errors="*{ingredients}">Ingredient Error</span>
 
     <div class="grid">
@@ -24,7 +24,7 @@
         <span th:text="${ingredient.name}">INGREDIENT</span><br/>
       </div>
       </div>
-  
+
 	  <div class="ingredient-group" id="cheeses">
       <h3>Wybierz ser:</h3>
       <div th:each="ingredient : ${cheese}">
@@ -32,7 +32,7 @@
         <span th:text="${ingredient.name}">INGREDIENT</span><br/>
       </div>
       </div>
-        
+
 	  <div class="ingredient-group" id="toppings">
       <h3>Wybierz dodatki:</h3>
       <div th:each="ingredient : ${toppings}">
@@ -40,7 +40,7 @@
         <span th:text="${ingredient.name}">INGREDIENT</span><br/>
       </div>
       </div>
-      
+
 	  <div class="ingredient-group" id="sauces">
       <h3>Wybierz sos:</h3>
       <div th:each="ingredient : ${sauce}">
@@ -49,17 +49,17 @@
       </div>
       </div>
       </div>
-      
+
       <div>
 
 
       <h3>Nazwij swoją pizze:</h3>
       <input type="text" th:field="*{name}"/>
       <span class="validationError"
-            th:if="${#fields.hasErrors('name')}" 
+            th:if="${#fields.hasErrors('name')}"
             th:errors="*{name}">Name Error</span>
       <br/>
-      
+
       <button>Zatwierdź pizze</button>
       </div>
     </form>

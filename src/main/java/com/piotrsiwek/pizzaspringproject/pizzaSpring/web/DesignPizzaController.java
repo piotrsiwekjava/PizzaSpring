@@ -35,7 +35,7 @@ public class DesignPizzaController {
   private final IngredientRepository ingredientRepo;
 
   //end::injectingIngredientRepository[]
-  private PizzaRepository tacoRepo;
+  private PizzaRepository pizzaRepo;
 
   //end::injectingDesignRepository[]
   /*
@@ -50,9 +50,9 @@ public class DesignPizzaController {
   @Autowired
   public DesignPizzaController(
         IngredientRepository ingredientRepo,
-        PizzaRepository tacoRepo) {
+        PizzaRepository pizzaRepo) {
     this.ingredientRepo = ingredientRepo;
-    this.tacoRepo = tacoRepo;
+    this.pizzaRepo = pizzaRepo;
   }
 
   @ModelAttribute(name = "order")
@@ -94,7 +94,7 @@ public class DesignPizzaController {
       return "design";
     }
 
-    Pizza saved = tacoRepo.save(pizza);
+    Pizza saved = pizzaRepo.save(pizza);
     order.addDesign(saved);
 
     return "redirect:/orders/current";

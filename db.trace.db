@@ -6,3 +6,27 @@ select ingredient0_.id as id1_0_0_, ingredient0_.name as name2_0_0_, ingredient0
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabela "INGREDIENT" nie istnieje
 Table "INGREDIENT" not found; SQL statement:
 select ingredient0_.id as id1_0_0_, ingredient0_.name as name2_0_0_, ingredient0_.type as type3_0_0_ from ingredient ingredient0_ where ingredient0_.id=? [42102-200]
+2021-04-20 13:07:04 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabela "INGREDIENT" nie istnieje
+Table "INGREDIENT" not found; SQL statement:
+select ingredient0_.id as id1_0_, ingredient0_.name as name2_0_, ingredient0_.type as type3_0_ from ingredient ingredient0_ [42102-200]
+2021-04-20 13:09:45 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabela "INGREDIENT" nie istnieje
+Table "INGREDIENT" not found; SQL statement:
+select ingredient0_.id as id1_0_, ingredient0_.name as name2_0_, ingredient0_.type as type3_0_ from ingredient ingredient0_ [42102-200]
+2021-04-20 13:09:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabela "INGREDIENT" nie istnieje
+Table "INGREDIENT" not found; SQL statement:
+select ingredient0_.id as id1_0_, ingredient0_.name as name2_0_, ingredient0_.type as type3_0_ from ingredient ingredient0_ [42102-200]
+2021-04-20 13:10:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabela "INGREDIENT" nie istnieje
+Table "INGREDIENT" not found; SQL statement:
+select ingredient0_.id as id1_0_, ingredient0_.name as name2_0_, ingredient0_.type as type3_0_ from ingredient ingredient0_ [42102-200]
+2021-04-20 13:15:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabela "INGREDIENT" nie istnieje
+Table "INGREDIENT" not found; SQL statement:
+select ingredient0_.id as id1_0_, ingredient0_.name as name2_0_, ingredient0_.type as type3_0_ from ingredient ingredient0_ [42102-200]
+2021-04-20 13:18:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabela "INGREDIENT" nie istnieje
+Table "INGREDIENT" not found; SQL statement:
+select ingredient0_.id as id1_0_0_, ingredient0_.name as name2_0_0_, ingredient0_.type as type3_0_0_ from ingredient ingredient0_ where ingredient0_.id=? [42102-200]
