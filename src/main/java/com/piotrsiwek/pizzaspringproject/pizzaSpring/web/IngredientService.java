@@ -7,23 +7,23 @@ import com.piotrsiwek.pizzaspringproject.pizzaSpring.data.IngredientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 
-@Component
-public class IngredientByIdConverter implements Converter<String, Ingredient> {
+@Service
+public class IngredientService {
 
   private IngredientRepository ingredientRepo;
 
   @Autowired
-  public IngredientByIdConverter(IngredientRepository ingredientRepo) {
+  public IngredientService(IngredientRepository ingredientRepo) {
     this.ingredientRepo = ingredientRepo;
   }
   
-  @Override
-  public Ingredient convert(String id) {
-    Optional<Ingredient> optionalIngredient = ingredientRepo.findById(id);
-	return optionalIngredient.isPresent() ?
-		   optionalIngredient.get() : null;
-  }
+//  public Ingredient findById(String id){
+//    return ingredientRepo
+//            .findById(id)
+//            .map(Ingredient::new);
+//  }
 
 }

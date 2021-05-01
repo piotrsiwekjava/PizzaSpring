@@ -7,6 +7,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class PizzaSpringApplication {
 
 	public static void main(String[] args) {
+
+//		Ingredient i = new Ingredient(2,"sasd", Ingredient.Type.SAUCE);
+//		System.out.println("1 _" + i);
+//		System.out.println("1 _" + i.toString());
+//		System.out.println(Ingredient.Type.SAUCE.toString());
+
 		SpringApplication.run(PizzaSpringApplication.class, args);
 	}
 

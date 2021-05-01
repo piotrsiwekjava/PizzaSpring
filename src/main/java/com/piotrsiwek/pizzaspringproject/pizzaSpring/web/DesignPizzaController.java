@@ -23,29 +23,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 
-//tag::injectingDesignRepository[]
-//tag::injectingIngredientRepository[]
 @Controller
 @RequestMapping("/design")
-//end::injectingIngredientRepository[]
 @SessionAttributes("order")
-//tag::injectingIngredientRepository[]
 public class DesignPizzaController {
 
   private final IngredientRepository ingredientRepo;
 
-  //end::injectingIngredientRepository[]
   private PizzaRepository pizzaRepo;
 
-  //end::injectingDesignRepository[]
-  /*
-  //tag::injectingIngredientRepository[]
-  public DesignTacoController(IngredientRepository ingredientRepo) {
-    this.ingredientRepo = ingredientRepo;
-  }
-  //end::injectingIngredientRepository[]
-   */
-  //tag::injectingDesignRepository[]
 
   @Autowired
   public DesignPizzaController(
@@ -65,14 +51,12 @@ public class DesignPizzaController {
     return new Pizza();
   }
 
-  //end::injectingDesignRepository[]
-
-  //tag::injectingIngredientRepository[]
-
   @GetMapping
   public String showDesignForm(Model model) {
+    System.out.println("-----------------wait-------------");
     List<Ingredient> ingredients = new ArrayList<>();
     ingredientRepo.findAll().forEach(i -> ingredients.add(i));
+    System.out.println("--------------helllllllllllllllllllo");
 
     Type[] types = Type.values();
     for (Type type : types) {
@@ -82,9 +66,7 @@ public class DesignPizzaController {
 
     return "design";
   }
-  //end::injectingIngredientRepository[]
 
-//tag::injectingDesignRepository[]
   @PostMapping
   public String processDesign(
       @Valid Pizza pizza, Errors errors,
@@ -100,7 +82,6 @@ public class DesignPizzaController {
     return "redirect:/orders/current";
   }
 
-//end::injectingDesignRepository[]
 
   private List<Ingredient> filterByType(
       List<Ingredient> ingredients, Type type) {
@@ -109,19 +90,4 @@ public class DesignPizzaController {
               .filter(x -> x.getType().equals(type))
               .collect(Collectors.toList());
   }
-
-  /*
-  //tag::injectingDesignRepository[]
-  //tag::injectingIngredientRepository[]
-
-   ...
-  //end::injectingIngredientRepository[]
-  //end::injectingDesignRepository[]
-  */
-
-//tag::injectingDesignRepository[]
-//tag::injectingIngredientRepository[]
-
 }
-//end::injectingIngredientRepository[]
-//end::injectingDesignRepository[]
