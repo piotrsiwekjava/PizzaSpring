@@ -53,10 +53,8 @@ public class DesignPizzaController {
 
   @GetMapping
   public String showDesignForm(Model model) {
-    System.out.println("-----------------wait-------------");
     List<Ingredient> ingredients = new ArrayList<>();
     ingredientRepo.findAll().forEach(i -> ingredients.add(i));
-    System.out.println("--------------helllllllllllllllllllo");
 
     Type[] types = Type.values();
     for (Type type : types) {

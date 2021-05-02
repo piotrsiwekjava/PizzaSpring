@@ -18,10 +18,11 @@ public class Ingredient {
   private final Integer id;
   private final String name;
   private final Type type;
+  private final Double price;
 
 
   public static enum Type {
-    BASE, TOPPINGS, CHEESE, SAUCE
+    BASE, CHEESE, SAUCE, TOPPINGS
   }
 
   public Type getType() {
