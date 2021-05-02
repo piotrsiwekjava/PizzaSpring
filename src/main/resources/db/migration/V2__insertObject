@@ -1,1 +1,1 @@
-insert into ingredient (name, type) values ('CZOSNKOWY', 2, 0);
+insert into ingredient (name, type, price) values ('CZOSNKOWY', 2, 0);
