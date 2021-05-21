@@ -1,4 +1,4 @@
-package com.piotrsiwek.pizzaspringproject.pizzaSpring;
+package com.piotrsiwek.pizzaspringproject.pizzaSpring.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

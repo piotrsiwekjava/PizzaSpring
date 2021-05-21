@@ -6,12 +6,12 @@ import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
-import com.piotrsiwek.pizzaspringproject.pizzaSpring.Ingredient;
-import com.piotrsiwek.pizzaspringproject.pizzaSpring.Ingredient.Type;
-import com.piotrsiwek.pizzaspringproject.pizzaSpring.Order;
-import com.piotrsiwek.pizzaspringproject.pizzaSpring.Pizza;
-import com.piotrsiwek.pizzaspringproject.pizzaSpring.data.IngredientRepository;
-import com.piotrsiwek.pizzaspringproject.pizzaSpring.data.PizzaRepository;
+import com.piotrsiwek.pizzaspringproject.pizzaSpring.entity.Ingredient;
+import com.piotrsiwek.pizzaspringproject.pizzaSpring.entity.Ingredient.Type;
+import com.piotrsiwek.pizzaspringproject.pizzaSpring.entity.Order;
+import com.piotrsiwek.pizzaspringproject.pizzaSpring.entity.Pizza;
+import com.piotrsiwek.pizzaspringproject.pizzaSpring.repo.IngredientRepository;
+import com.piotrsiwek.pizzaspringproject.pizzaSpring.repo.PizzaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -69,13 +69,21 @@ public class DesignPizzaController {
   public String processDesign(
       @Valid Pizza pizza, Errors errors,
       @ModelAttribute Order order) {
+    System.out.println("---------------------------------------------------------------------------------zero");
 
     if (errors.hasErrors()) {
       return "design";
     }
 
+    System.out.println("---------------------------------------------------------------------------------first");
+
     Pizza saved = pizzaRepo.save(pizza);
+
+    System.out.println("---------------------------------------------------------------------------------first first 2");
+
     order.addDesign(saved);
+
+    System.out.println("---------------------------------------------------------------------------------second");
 
     return "redirect:/orders/current";
   }

@@ -1,6 +1,6 @@
-package com.piotrsiwek.pizzaspringproject.pizzaSpring.data;
+package com.piotrsiwek.pizzaspringproject.pizzaSpring.repo;
 
-import com.piotrsiwek.pizzaspringproject.pizzaSpring.Ingredient;
+import com.piotrsiwek.pizzaspringproject.pizzaSpring.entity.Ingredient;
 import org.springframework.data.repository.CrudRepository;
 
 

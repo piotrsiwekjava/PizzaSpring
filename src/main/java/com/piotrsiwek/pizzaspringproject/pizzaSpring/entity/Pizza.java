@@ -1,14 +1,9 @@
-package com.piotrsiwek.pizzaspringproject.pizzaSpring;
+package com.piotrsiwek.pizzaspringproject.pizzaSpring.entity;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.PrePersist;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -30,7 +25,7 @@ public class Pizza {
   private Date createdAt;
 
   @ManyToMany(targetEntity=Ingredient.class)
-  @Size(min=1, message="Musisz wybrać chociaż jeden składnik")
+  @Size(min=3, message="Musisz wybrać chociaż jeden składnik")
   private List<Ingredient> ingredients = new ArrayList<>();
   
   @PrePersist

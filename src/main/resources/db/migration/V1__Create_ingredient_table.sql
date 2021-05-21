@@ -1,5 +1,5 @@
 create table ingredient (
-    id int unsigned primary key auto_increment,
+    id_ingredient int unsigned primary key auto_increment,
     name varchar(100) not null,
     type varchar(20),
     price double
@@ -16,4 +16,6 @@ insert into ingredient (name, type, price) values ('CZOSNKOWY', 2, 0);
 
 insert into ingredient (name, type, price) values ('SALAMI', 3, 5);
 insert into ingredient (name, type, price) values ('PAPRYKA', 3, 5);
+insert into ingredient (name, type, price) values ('Jalapeno', 3, 5);
+insert into ingredient (name, type, price) values ('Pieczarki', 3, 5);
 

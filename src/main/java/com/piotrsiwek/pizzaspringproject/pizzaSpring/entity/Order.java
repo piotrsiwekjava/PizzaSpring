@@ -1,5 +1,5 @@
-// tag::allButDetailProperties[]
-package com.piotrsiwek.pizzaspringproject.pizzaSpring;
+
+package com.piotrsiwek.pizzaspringproject.pizzaSpring.entity;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
@@ -32,8 +32,7 @@ public class Order implements Serializable {
   private Long id;
   
   private Date placedAt;
-  
-//end::allButDetailProperties[]
+
   @NotBlank(message="Musisz podać swoje imię!")
   private String deliveryName;
   
@@ -56,14 +55,6 @@ public class Order implements Serializable {
   @Digits(integer=3, fraction=0, message="Niewłaściwy CVV")
   private String ccCVV;
 
-  /*
-  //tag::allButDetailProperties[]
-  ...
-  
-  //end::allButDetailProperties[]
-   */
-  
-//tag::allButDetailProperties[]
   @ManyToMany(targetEntity= Pizza.class)
   private List<Pizza> tacos = new ArrayList<>();
   
@@ -77,4 +68,3 @@ public class Order implements Serializable {
   }
   
 }
-//end::allButDetailProperties[]

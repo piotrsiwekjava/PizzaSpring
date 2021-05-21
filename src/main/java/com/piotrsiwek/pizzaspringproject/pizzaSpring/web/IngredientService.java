@@ -1,12 +1,7 @@
 package com.piotrsiwek.pizzaspringproject.pizzaSpring.web;
 
-import java.util.Optional;
-
-import com.piotrsiwek.pizzaspringproject.pizzaSpring.Ingredient;
-import com.piotrsiwek.pizzaspringproject.pizzaSpring.data.IngredientRepository;
+import com.piotrsiwek.pizzaspringproject.pizzaSpring.repo.IngredientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.convert.converter.Converter;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 

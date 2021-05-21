@@ -1,8 +1,8 @@
 package com.piotrsiwek.pizzaspringproject.pizzaSpring.web;
 import javax.validation.Valid;
 
-import com.piotrsiwek.pizzaspringproject.pizzaSpring.Order;
-import com.piotrsiwek.pizzaspringproject.pizzaSpring.data.OrderRepository;
+import com.piotrsiwek.pizzaspringproject.pizzaSpring.entity.Order;
+import com.piotrsiwek.pizzaspringproject.pizzaSpring.repo.OrderRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
