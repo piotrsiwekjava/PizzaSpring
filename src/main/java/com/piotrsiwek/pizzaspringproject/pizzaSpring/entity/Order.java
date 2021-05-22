@@ -56,10 +56,10 @@ public class Order implements Serializable {
   private String ccCVV;
 
   @ManyToMany(targetEntity= Pizza.class)
-  private List<Pizza> tacos = new ArrayList<>();
+  private List<Pizza> pizzas = new ArrayList<>();
   
   public void addDesign(Pizza design) {
-    this.tacos.add(design);
+    this.pizzas.add(design);
   }
   
   @PrePersist
