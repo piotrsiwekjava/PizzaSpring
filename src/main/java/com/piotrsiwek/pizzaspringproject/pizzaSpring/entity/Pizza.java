@@ -25,6 +25,7 @@ public class Pizza {
   private Date createdAt;
 
   @ManyToMany(targetEntity=Ingredient.class)
+  @JoinColumn(name = "pizza_id")
   @Size(min=3, message="Musisz wybrać chociaż jeden składnik")
   private List<Ingredient> ingredients = new ArrayList<>();
   
