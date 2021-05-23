@@ -33,4 +33,8 @@ public class Pizza {
   void createdAt() {
     this.createdAt = new Date();
   }
+
+  public void addIn (Ingredient ai){
+    ingredients.add(ai);
+  }
 }

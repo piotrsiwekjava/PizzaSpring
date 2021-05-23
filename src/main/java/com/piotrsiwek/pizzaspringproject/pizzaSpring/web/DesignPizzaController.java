@@ -47,9 +47,10 @@ public class DesignPizzaController {
   }
 
   @ModelAttribute(name = "newPizza")
-  public Pizza design() {
+  public Pizza newPizza() {
     return new Pizza();
   }
+
 
   @GetMapping
   public String showDesignForm(Model model) {
