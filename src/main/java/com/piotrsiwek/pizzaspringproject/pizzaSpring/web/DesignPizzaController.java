@@ -46,7 +46,7 @@ public class DesignPizzaController {
     return new Order();
   }
 
-  @ModelAttribute(name = "design")
+  @ModelAttribute(name = "newPizza")
   public Pizza design() {
     return new Pizza();
   }
@@ -69,21 +69,12 @@ public class DesignPizzaController {
   public String processDesign(
       @Valid Pizza pizza, Errors errors,
       @ModelAttribute Order order) {
-    System.out.println("---------------------------------------------------------------------------------zero");
 
     if (errors.hasErrors()) {
-      return "design";
+      return "redirect:/design";
     }
-
-    System.out.println("---------------------------------------------------------------------------------first");
-
     Pizza saved = pizzaRepo.save(pizza);
-
-    System.out.println("---------------------------------------------------------------------------------first first 2");
-
     order.addDesign(saved);
-
-    System.out.println("---------------------------------------------------------------------------------second");
 
     return "redirect:/orders/current";
   }

@@ -53,7 +53,7 @@ public class Start {
         ingredientRepository.save(i7);
         ingredientRepository.save(i8);
         ingredientRepository.save(i9);
-        ingredientRepository.save(i10);
+        ingredientRepository.save(i9);
 
 //        Pizza p1 = new Pizza(1,"vege z papryka",ingredients1);
 //        Pizza p2 = new Pizza(2,"salami na grubym cieście",ingredients2);
