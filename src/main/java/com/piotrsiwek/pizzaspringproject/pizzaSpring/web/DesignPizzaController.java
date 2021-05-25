@@ -10,6 +10,7 @@ import com.piotrsiwek.pizzaspringproject.pizzaSpring.entity.Ingredient;
 import com.piotrsiwek.pizzaspringproject.pizzaSpring.entity.Ingredient.Type;
 import com.piotrsiwek.pizzaspringproject.pizzaSpring.entity.Order;
 import com.piotrsiwek.pizzaspringproject.pizzaSpring.entity.Pizza;
+import com.piotrsiwek.pizzaspringproject.pizzaSpring.entity.PizzaConverter;
 import com.piotrsiwek.pizzaspringproject.pizzaSpring.repo.IngredientRepository;
 import com.piotrsiwek.pizzaspringproject.pizzaSpring.repo.PizzaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,8 +48,8 @@ public class DesignPizzaController {
   }
 
   @ModelAttribute(name = "newPizza")
-  public Pizza newPizza() {
-    return new Pizza();
+  public PizzaConverter newPizza() {
+    return new PizzaConverter();
   }
 
 
@@ -68,12 +69,15 @@ public class DesignPizzaController {
 
   @PostMapping
   public String processDesign(
-      @Valid Pizza pizza, Errors errors,
+      @Valid PizzaConverter pizzaConverter, Errors errors,
       @ModelAttribute Order order) {
+
+    System.out.println("New Pizza is here : "+ pizzaConverter);
 
     if (errors.hasErrors()) {
       return "redirect:/design";
     }
+    Pizza pizza = pizzaConverter.convert();
     Pizza saved = pizzaRepo.save(pizza);
     order.addDesign(saved);
 

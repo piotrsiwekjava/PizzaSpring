@@ -28,13 +28,39 @@ public class Pizza {
   @JoinColumn(name = "pizza_id")
   @Size(min=3, message="Musisz wybrać chociaż jeden składnik")
   private List<Ingredient> ingredients = new ArrayList<>();
-  
+
+  public Pizza() {
+  }
+
+  public Pizza(Long id, String name, Date createdAt, List<Ingredient> ingredients) {
+    this.id = id;
+    this.name = name;
+    this.createdAt = createdAt;
+    this.ingredients = ingredients;
+  }
+
   @PrePersist
   void createdAt() {
     this.createdAt = new Date();
   }
 
-  public void addIn (Ingredient ai){
-    ingredients.add(ai);
+  public void addIngredient (Ingredient in){
+    ingredients.add(in);
+  }
+
+  public Long getId() {
+    return id;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public Date getCreatedAt() {
+    return createdAt;
+  }
+
+  public List<Ingredient> getIngredients() {
+    return ingredients;
   }
 }
