@@ -21,16 +21,23 @@ public class Start {
         this.ingredientRepository=ingredientRepository;
         this.pizzaRepository=pizzaRepository;
 
+        Ingredient s1 = new Ingredient(101,"Mała", Ingredient.Type.SIZE,0.5);
+        Ingredient s2 = new Ingredient(102,"Normalna", Ingredient.Type.SIZE,1.0);
+        Ingredient s3 = new Ingredient(103,"Duża", Ingredient.Type.SIZE,1.5);
+        Ingredient s4 = new Ingredient(104,"XXL", Ingredient.Type.SIZE,2.0);
+
         Ingredient i1 = new Ingredient(0, "Cienkie ciasto", Ingredient.Type.BASE, 10.0);
         Ingredient i2 = new Ingredient(1, "Grube ciasto", Ingredient.Type.BASE, 15.0);
-        Ingredient i3 = new Ingredient(2, "Gouda", Ingredient.Type.CHEESE, 0.0);
-        Ingredient i4 = new Ingredient(3, "Mozzarella", Ingredient.Type.CHEESE, 0.0);
-        Ingredient i5 = new Ingredient(4, "Pomidorowy", Ingredient.Type.SAUCE, 0.0);
-        Ingredient i6 = new Ingredient(5, "Czosnkowy", Ingredient.Type.SAUCE, 0.0);
+        Ingredient i3 = new Ingredient(2, "Ser Gouda", Ingredient.Type.CHEESE, 0.0);
+        Ingredient i4 = new Ingredient(3, "Ser Mozzarella", Ingredient.Type.CHEESE, 0.0);
+        Ingredient i5 = new Ingredient(4, "Sos Pomidorowy", Ingredient.Type.SAUCE, 0.0);
+        Ingredient i6 = new Ingredient(5, "Sos Czosnkowy", Ingredient.Type.SAUCE, 0.0);
         Ingredient i7 = new Ingredient(6, "Salami", Ingredient.Type.TOPPINGS, 5.0);
         Ingredient i8 = new Ingredient(7, "Jalapeno", Ingredient.Type.TOPPINGS, 5.0);
         Ingredient i9 = new Ingredient(8, "Papryka", Ingredient.Type.TOPPINGS, 5.0);
         Ingredient i10 = new Ingredient(9, "Pieczarki", Ingredient.Type.TOPPINGS, 5.0);
+
+
 
         List<Ingredient> ingredients1 = new ArrayList<>();
         ingredients1.add(i1);
@@ -44,6 +51,10 @@ public class Start {
         ingredients2.add(i9);
         ingredients2.add(i10);
 
+        ingredientRepository.save(s1);
+        ingredientRepository.save(s2);
+        ingredientRepository.save(s3);
+        ingredientRepository.save(s4);
         ingredientRepository.save(i1);
         ingredientRepository.save(i2);
         ingredientRepository.save(i3);

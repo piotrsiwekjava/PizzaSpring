@@ -29,6 +29,8 @@ public class Pizza {
   @Size(min=3, message="Musisz wybrać chociaż jeden składnik")
   private List<Ingredient> ingredients = new ArrayList<>();
 
+  private double price;
+
   public Pizza() {
   }
 
@@ -62,5 +64,17 @@ public class Pizza {
 
   public List<Ingredient> getIngredients() {
     return ingredients;
+  }
+
+  public double getPrice() {
+    return price;
+  }
+
+
+  public double calculateThePizzaValue(){
+    for (Ingredient ingredient: ingredients){
+      price+=ingredient.getPrice();
+    }
+    return price;
   }
 }

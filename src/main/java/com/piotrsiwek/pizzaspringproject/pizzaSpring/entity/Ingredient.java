@@ -22,10 +22,14 @@ public class Ingredient {
 
 
   public static enum Type {
-    BASE, CHEESE, SAUCE, TOPPINGS
+    SIZE, BASE, CHEESE, SAUCE, TOPPINGS
   }
 
   public Type getType() {
     return type;
+  }
+
+  public Double getPrice() {
+    return price;
   }
 }

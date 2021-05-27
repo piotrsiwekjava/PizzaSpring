@@ -19,6 +19,13 @@
 
   <div class="grid">
     <div class="ingredient-group" id="base">
+
+      <h3>Wybierz rozmiar:</h3>
+      <div th:each="ingredient : ${size}">
+        <input name="size" type="radio" th:value="${ingredient.id}" />
+        <span th:text="${ingredient.name}">INGREDIENT</span>
+      </div>
+
       <h3>Wybierz spód:</h3>
       <div th:each="ingredient : ${base}">
         <input name="base" type="radio" th:value="${ingredient.id}" />
