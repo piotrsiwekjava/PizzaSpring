@@ -11,7 +11,7 @@
     <form method="POST" th:action="@{/orders}" th:object="${order}">
       <h1>Zamów swoją stworzoną pizze!</h1>
 
-      <img th:src="@{/images/pizzaspring.png}"/>
+      <img th:src="@{/images/pizzaspring.jpg}" width="450" height="450"/>
 
       <h3>Twoja pizza w tym zamówieniu:</h3>
       <a th:href="@{/design}" id="another">Zaprojektuj kolejną pizze!</a><br/>
@@ -22,7 +22,9 @@
             <li th:each="ingredient : ${pizza.ingredients}">
               <span th:text="${ingredient.name}">ingredient name</span>
             </li>
-            <li th:text="${pizza.price}">pizza price</li>
+            <li > Cena
+              <span th:text="${pizza.price}">ingredient name</span>
+            </li>
           </ul>
         </li>
 

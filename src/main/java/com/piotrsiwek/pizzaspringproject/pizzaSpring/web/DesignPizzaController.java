@@ -1,6 +1,8 @@
 package com.piotrsiwek.pizzaspringproject.pizzaSpring.web;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -58,10 +60,16 @@ public class DesignPizzaController {
     List<Ingredient> ingredients = new ArrayList<>();
     ingredientRepo.findAll().forEach(i -> ingredients.add(i));
 
+    List<Ingredient> sortedIngredient = ingredients.stream()
+            .sorted(Comparator
+                    .comparing(Ingredient::getPrice)
+                    .thenComparing(Ingredient::getName))
+            .collect(Collectors.toList());
+
     Type[] types = Type.values();
     for (Type type : types) {
       model.addAttribute(type.toString().toLowerCase(),
-          filterByType(ingredients, type));
+          filterByType(sortedIngredient, type));
     }
 
     return "design";

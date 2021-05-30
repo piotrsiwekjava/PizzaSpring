@@ -21,15 +21,21 @@ public class Ingredient {
   private final Double price;
 
 
+
   public static enum Type {
-    SIZE, BASE, CHEESE, SAUCE, TOPPINGS
+    SIZE, BASE, CHEESE, SAUCE, VEGE, MEAT
   }
 
   public Type getType() {
     return type;
   }
 
+  public String getName() {
+    return name;
+  }
+
   public Double getPrice() {
     return price;
   }
+
 }

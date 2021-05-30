@@ -66,14 +66,14 @@ public class Pizza {
     return ingredients;
   }
 
-  public double getPrice() {
-    return price;
-  }
-
-
   public double calculateThePizzaValue(){
+    double inc=1;
     for (Ingredient ingredient: ingredients){
-      price+=ingredient.getPrice();
+      if (ingredient.getType()== Ingredient.Type.SIZE)
+        inc=ingredient.getPrice();
+      else if (ingredient.getType()== Ingredient.Type.BASE)
+        price +=(((100+ingredient.getPrice())/100)*inc);
+      else price+=ingredient.getPrice();
     }
     return price;
   }
