@@ -66,8 +66,8 @@ public class DesignPizzaController {
                     .thenComparing(Ingredient::getName))
             .collect(Collectors.toList());
 
-    Type[] types = Type.values();
-    for (Type type : types) {
+    Ingredient.Type[] types = Ingredient.Type.values();
+    for (Ingredient.Type type : types) {
       model.addAttribute(type.toString().toLowerCase(),
           filterByType(sortedIngredient, type));
     }
