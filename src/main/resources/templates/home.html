@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" 
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      lang="pl-PL">
   <head>
     <title>Pizza Spring Portal</title>
+    <meta charset="utf-8" />
   </head>
-  
+
   <body>
-    <h1>Witaj w ...</h1>
+    <h1 th:text="#{home.welcome}">Welcome in...</h1>
     <img th:src="@{/images/pizzaspring.jpg}" width="450" height="450"/>
     
-    <a th:href="@{/design}" id="design">Zaprojektuj swoją pizze!</a>
+    <a th:href="@{/design}" id="design"><input type="button" value="Design YOUR PIZZA" th:value="#{design.go}"></a>
+
   </body>
 </html>

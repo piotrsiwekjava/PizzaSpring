@@ -2,6 +2,7 @@ package com.piotrsiwek.pizzaspringproject.pizzaSpring.entity;
 
 import lombok.Data;
 
+import javax.validation.constraints.NotNull;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
@@ -10,7 +11,10 @@ import java.util.List;
 public class PizzaConverter extends Pizza{
 
 
+    @NotNull(message = "Wybierz rozmiar")
     private Ingredient size;
+
+    @NotNull
     private Ingredient base;
     private Ingredient cheese;
     private Ingredient sauces;

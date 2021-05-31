@@ -19,7 +19,7 @@ public class Pizza {
   private Long id;
 
   @NotNull
-  @Size(min=5, message="Za krótka nazwa. Podaj taką aby kucharz zrozumiał.")
+  @Size(min=3, message="Za krótka nazwa. Podaj taką aby kucharz zrozumiał.")
   private String name;
 
   private Date createdAt;
