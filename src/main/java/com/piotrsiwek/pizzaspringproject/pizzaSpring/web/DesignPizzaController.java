@@ -49,7 +49,7 @@ public class DesignPizzaController {
     return new Order();
   }
 
-  @ModelAttribute(name = "newPizza")
+  @ModelAttribute(name = "design")
   public PizzaConverter newPizza() {
     return new PizzaConverter();
   }

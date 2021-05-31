@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -20,13 +21,13 @@ public class Pizza {
 
   @NotNull
   @Size(min=3, message="Za krótka nazwa. Podaj taką aby kucharz zrozumiał.")
+  @NotBlank(message="Musisz podać nazwe pizzy.")
   private String name;
 
   private Date createdAt;
 
   @ManyToMany(targetEntity=Ingredient.class)
   @JoinColumn(name = "pizza_id")
-  @Size(min=3, message="Musisz wybrać chociaż jeden składnik")
   private List<Ingredient> ingredients = new ArrayList<>();
 
   private double price;
@@ -50,16 +51,8 @@ public class Pizza {
     ingredients.add(in);
   }
 
-  public Long getId() {
-    return id;
-  }
-
   public String getName() {
     return name;
-  }
-
-  public Date getCreatedAt() {
-    return createdAt;
   }
 
   public List<Ingredient> getIngredients() {

@@ -11,11 +11,12 @@
 <h1 th:text="#{design.create}">Stwórz swoją pizze!</h1>
 <img th:src="@{/images/pizzaspring.jpg}" width="450" height="450"/>
 
-<form method="POST" th:object="${newPizza}">
+<form method="POST" th:object="${design}">
 
     <span class="validationError"
           th:if="${#fields.hasErrors('ingredients')}"
           th:errors="*{ingredients}">Ingredient Error</span>
+
 
   <div class="grid">
     <div class="ingredient-group" id="base">
@@ -26,6 +27,11 @@
         <span th:text="${ingredient.name}">INGREDIENT</span>
         <span th:text="${ingredient.price + ' zł'}">INGREDIENT</span><br/>
       </div>
+
+      <span class="validationError"
+            th:if="${#fields.hasErrors('size')}"
+            th:errors="*{size}">Name Error</span>
+      <br/>
 
       <h3 th:text="#{design.chooseBase}">Wybierz spód:</h3>
       <div th:each="ingredient : ${base}">
@@ -84,6 +90,11 @@
           th:errors="*{name}">Name Error</span>
     <br/>
 
+<!--    <div th:if="${#fields.hasErrors()}">-->
+<!--        <span class="validationError" th:text="#validation.makeupdata">-->
+<!--        Popraw dane przed zaakceptowaniem.-->
+<!--        </span>-->
+<!--    </div>-->
     <button th:text="#{design.accept}">Zatwierdź pizze</button>
   </div>
 </form>
