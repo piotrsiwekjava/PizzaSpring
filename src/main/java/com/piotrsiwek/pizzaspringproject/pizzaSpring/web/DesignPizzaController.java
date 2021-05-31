@@ -49,8 +49,8 @@ public class DesignPizzaController {
     return new Order();
   }
 
-  @ModelAttribute(name = "design")
-  public PizzaConverter newPizza() {
+  @ModelAttribute(name = "pizzaConverter")
+  public PizzaConverter pizzaConverter() {
     return new PizzaConverter();
   }
 
@@ -77,13 +77,12 @@ public class DesignPizzaController {
 
   @PostMapping
   public String processDesign(
-      @Valid PizzaConverter pizzaConverter, Errors errors,
+      @Valid @ModelAttribute("pizzaConverter") PizzaConverter pizzaConverter, Errors errors,
       @ModelAttribute Order order) {
 
-    System.out.println("New Pizza is here : "+ pizzaConverter);
 
     if (errors.hasErrors()) {
-      return "redirect:/design";
+      return "design";
     }
     Pizza pizza = pizzaConverter.convert();
     Pizza saved = pizzaRepo.save(pizza);

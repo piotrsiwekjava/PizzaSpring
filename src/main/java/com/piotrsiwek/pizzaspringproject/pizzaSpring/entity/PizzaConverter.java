@@ -20,7 +20,7 @@ public class PizzaConverter{
     private Long id;
 
     @NotNull
-    @Size(min=3, message="Za krótka nazwa. Podaj taką aby kucharz zrozumiał.")
+    @Size(min=3, max=25, message="Za krótka nazwa. Minimum 3 znaki, max 25 znaków.")
     @NotBlank(message="Musisz podać nazwe pizzy.")
     private String name;
 
