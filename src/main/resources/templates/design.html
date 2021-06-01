@@ -22,9 +22,9 @@
     <div class="ingredient-group" id="base">
 
       <h3 th:text="#{design.chooseSize}">Wybierz rozmiar:</h3>
-      <div th:each="ingredient : ${size}">
-        <input name="size" type="radio" th:value="${ingredient.id}" />
-        <span th:text="${ingredient.name}">INGREDIENT</span>
+      <div th:each="ingredient : ${ingredientsList.get(0)}">
+        <input name="size" type="radio" th:value="${ingredient.id}" readonly="readonlys"/>
+        <span th:text="${ingredient.name}" >INGREDIENT</span>
         <span th:text="${ingredient.price + ' zł'}">INGREDIENT</span><br/>
       </div>
 
@@ -34,7 +34,7 @@
       <br/>
 
       <h3 th:text="#{design.chooseBase}">Wybierz spód:</h3>
-      <div th:each="ingredient : ${base}">
+      <div th:each="ingredient : ${ingredientsList.get(1)}">
         <input name="base" type="radio" th:value="${ingredient.id} "/>
         <span th:text="${ingredient.name}">INGREDIENT</span>
 
@@ -48,7 +48,7 @@
 
     <div class="ingredient-group" id="cheeses">
       <h3 th:text="#{design.chooseCheese}">Wybierz ser:</h3>
-      <div th:each="ingredient : ${cheese}">
+      <div th:each="ingredient : ${ingredientsList.get(2)}">
         <input name="cheese" type="radio" th:value="${ingredient.id}" />
         <span th:text="${ingredient.getName()}">INGREDIENT</span>
       </div>
@@ -56,7 +56,7 @@
 
     <div class="ingredient-group" id="sauces">
       <h3 th:text="#{design.chooseSauce}">Wybierz sos:</h3>
-      <div th:each="ingredient : ${sauce}">
+      <div th:each="ingredient : ${ingredientsList.get(3)}">
         <input name="sauces" type="radio" th:value="${ingredient.id}" />
         <span th:text="${ingredient.name}">INGREDIENT</span>
       </div>
@@ -65,14 +65,14 @@
     <div class="ingredient-group" id="vege_meat">
       <h3 th:text="#{design.chooseIngredient}">Wybierz dodatki:</h3>
       <h4 th:text="#{design.vege}">Wege:</h4>
-      <div th:each="ingredient : ${vege}">
+      <div th:each="ingredient : ${ingredientsList.get(4)}">
         <input name="ingredients" type="checkbox" th:value="${ingredient.id}" />
         <span  th:text="${ingredient.name}">INGREDIENT</span>
         <span th:text="${' + ' + ingredient.price + ' zł'}">INGREDIENT</span>
         <br/>
       </div>
       <h4 th:text="#{design.meat}">Mięsne:</h4>
-      <div th:each="ingredient : ${meat}">
+      <div th:each="ingredient : ${ingredientsList.get(5)}">
         <input name="ingredients" type="checkbox" th:value="${ingredient.id}" />
         <span  th:text="${ingredient.name}">INGREDIENT</span>
         <span th:text="${' + ' + ingredient.price + ' zł'}">INGREDIENT</span>

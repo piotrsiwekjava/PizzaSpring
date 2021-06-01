@@ -1,7 +1,6 @@
 package com.piotrsiwek.pizzaspringproject.pizzaSpring.web;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -49,28 +48,27 @@ public class DesignPizzaController {
     return new Order();
   }
 
-  @ModelAttribute(name = "pizzaConverter")
+  @ModelAttribute("pizzaConverter")
   public PizzaConverter pizzaConverter() {
     return new PizzaConverter();
   }
 
+  @ModelAttribute("ingredientsList")
+  public List<List<Ingredient>> ingredientsList(){
+    return giveIngredientsList();
+  }
+
+
+
 
   @GetMapping
   public String showDesignForm(Model model) {
-    List<Ingredient> ingredients = new ArrayList<>();
-    ingredientRepo.findAll().forEach(i -> ingredients.add(i));
 
-    List<Ingredient> sortedIngredient = ingredients.stream()
-            .sorted(Comparator
-                    .comparing(Ingredient::getPrice)
-                    .thenComparing(Ingredient::getName))
-            .collect(Collectors.toList());
-
-    Ingredient.Type[] types = Ingredient.Type.values();
-    for (Ingredient.Type type : types) {
-      model.addAttribute(type.toString().toLowerCase(),
-          filterByType(sortedIngredient, type));
-    }
+//    Ingredient.Type[] types = Ingredient.Type.values();
+//    for (Ingredient.Type type : types) {
+//      model.addAttribute(type.toString().toLowerCase(),
+//          filterByType(sortedIngredient(ingredients), type));
+//    }
 
     return "design";
   }
@@ -99,4 +97,28 @@ public class DesignPizzaController {
               .filter(x -> x.getType().equals(type))
               .collect(Collectors.toList());
   }
+  private List<List<Ingredient>> giveIngredientsList(){
+    List<List<Ingredient>> ingredients = new ArrayList<>();
+    Ingredient.Type[] types = Ingredient.Type.values();
+    for (Ingredient.Type type : types) {
+      ingredients.add(giveSortedIngredientListByType(type));
+    }
+    return ingredients;
+  }
+
+  private List<Ingredient> giveSortedIngredientListByType (Type type){
+    List<Ingredient> sortedList = new ArrayList<>();
+    ingredientRepo.findByType(type).forEach(i -> sortedList.add(i));
+    return sortByPriceAndName(sortedList);
+  }
+
+  private List<Ingredient> sortByPriceAndName(List<Ingredient> ingredients) {
+    List<Ingredient> sortedIngredient = ingredients.stream()
+            .sorted(Comparator
+                    .comparing(Ingredient::getPrice)
+                    .thenComparing(Ingredient::getName))
+            .collect(Collectors.toList());
+    return sortedIngredient;
+  }
+
 }
