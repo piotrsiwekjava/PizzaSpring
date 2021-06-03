@@ -33,26 +33,25 @@ public class Order implements Serializable {
   
   private Date placedAt;
 
-  @NotBlank(message="Musisz podać swoje imię!")
+  @NotBlank()
   private String deliveryName;
   
-  @NotBlank(message="Ulica jest wymagana!")
+  @NotBlank()
   private String deliveryStreet;
   
-  @NotBlank(message="Miasto jest wymagane!")
+  @NotBlank()
   private String deliveryCity;
 
-  @NotBlank(message="Kod pocztowy jest wymagany!")
+  @NotBlank()
   private String deliveryZip;
 
-  @CreditCardNumber(message="Nie prawidłowy numer karty kredytowej!")
+  @CreditCardNumber()
   private String ccNumber;
   
-  @Pattern(regexp="^(0[1-9]|1[0-2])([\\/])([1-9][0-9])$",
-           message="Must be formatted MM/YY")
+  @Pattern(regexp="^(0[1-9]|1[0-2])([\\/])([1-9][0-9])$")
   private String ccExpiration;
 
-  @Digits(integer=3, fraction=0, message="Niewłaściwy CVV")
+  @Digits(integer=3, fraction=0)
   private String ccCVV;
 
   @ManyToMany(targetEntity= Pizza.class)

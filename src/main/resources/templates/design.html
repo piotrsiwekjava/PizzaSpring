@@ -13,27 +13,31 @@
 
 <form method="POST" th:object="${pizzaConverter}">
 
-    <span class="validationError"
-          th:if="${#fields.hasErrors('name')}"
-          th:errors="*{name}">Ingredient Error</span>
-
-
   <div class="grid">
     <div class="ingredient-group" id="base">
 
       <h3 th:text="#{design.chooseSize}">Wybierz rozmiar:</h3>
+
+      <span class="validationError"
+            th:if="${#fields.hasErrors('size')}"
+            th:errors="*{size}">Size Error</span>
+      <br/>
+
       <div th:each="ingredient : ${ingredientsList.get(0)}">
         <input name="size" type="radio" th:value="${ingredient.id}" readonly="readonlys"/>
         <span th:text="${ingredient.name}" >INGREDIENT</span>
         <span th:text="${ingredient.price + ' zł'}">INGREDIENT</span><br/>
       </div>
 
-      <span class="validationError"
-            th:if="${#fields.hasErrors('size')}"
-            th:errors="*{size}">Name Error</span>
-      <br/>
+
 
       <h3 th:text="#{design.chooseBase}">Wybierz spód:</h3>
+
+      <span class="validationError"
+            th:if="${#fields.hasErrors('base')}"
+            th:text="#{design.chooseBase}">Base Error</span>
+      <br/>
+
       <div th:each="ingredient : ${ingredientsList.get(1)}">
         <input name="base" type="radio" th:value="${ingredient.id} "/>
         <span th:text="${ingredient.name}">INGREDIENT</span>
@@ -48,6 +52,12 @@
 
     <div class="ingredient-group" id="cheeses">
       <h3 th:text="#{design.chooseCheese}">Wybierz ser:</h3>
+
+      <span class="validationError"
+            th:if="${#fields.hasErrors('cheese')}"
+            th:text="#{design.chooseCheese}">Cheese Error</span>
+      <br/>
+
       <div th:each="ingredient : ${ingredientsList.get(2)}">
         <input name="cheese" type="radio" th:value="${ingredient.id}" />
         <span th:text="${ingredient.getName()}">INGREDIENT</span>
@@ -56,6 +66,12 @@
 
     <div class="ingredient-group" id="sauces">
       <h3 th:text="#{design.chooseSauce}">Wybierz sos:</h3>
+
+      <span class="validationError"
+            th:if="${#fields.hasErrors('sauces')}"
+            th:text="#{design.chooseSauce}">Sauce Error</span>
+      <br/>
+
       <div th:each="ingredient : ${ingredientsList.get(3)}">
         <input name="sauces" type="radio" th:value="${ingredient.id}" />
         <span th:text="${ingredient.name}">INGREDIENT</span>
@@ -63,21 +79,27 @@
     </div>
 
     <div class="ingredient-group" id="vege_meat">
+
       <h3 th:text="#{design.chooseIngredient}">Wybierz dodatki:</h3>
+
       <h4 th:text="#{design.vege}">Wege:</h4>
+
       <div th:each="ingredient : ${ingredientsList.get(4)}">
         <input name="ingredients" type="checkbox" th:value="${ingredient.id}" />
         <span  th:text="${ingredient.name}">INGREDIENT</span>
         <span th:text="${' + ' + ingredient.price + ' zł'}">INGREDIENT</span>
         <br/>
       </div>
+
       <h4 th:text="#{design.meat}">Mięsne:</h4>
+
       <div th:each="ingredient : ${ingredientsList.get(5)}">
         <input name="ingredients" type="checkbox" th:value="${ingredient.id}" />
         <span  th:text="${ingredient.name}">INGREDIENT</span>
         <span th:text="${' + ' + ingredient.price + ' zł'}">INGREDIENT</span>
         <br/>
       </div>
+
     </div>
 
   </div>
@@ -85,16 +107,22 @@
   <div>
     <h3 th:text="#{design.givename}">Nazwij swoją pizze:</h3>
     <input type="text" th:field="*{name}"/>
+    <br/>
     <span class="validationError"
           th:if="${#fields.hasErrors('name')}"
           th:errors="*{name}">Name Error</span>
     <br/>
 
-<!--    <div th:if="${#fields.hasErrors()}">-->
-<!--        <span class="validationError" th:text="#validation.makeupdata">-->
-<!--        Popraw dane przed zaakceptowaniem.-->
-<!--        </span>-->
-<!--    </div>-->
+    <p></p>
+
+    <br/>
+
+    <div th:if="${#fields.hasErrors()}">
+        <span class="validationError"
+              th:text="#{validation.makeupdata}">
+        Popraw dane przed zaakceptowaniem.
+        </span>
+    </div>
     <button th:text="#{design.accept}">Zatwierdź pizze</button>
   </div>
 </form>

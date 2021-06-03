@@ -31,12 +31,17 @@ public class PizzaConverter{
     private List<Ingredient> ingredients = new ArrayList<>();
 
     private double price;
+
     @NotNull(message = "Wybierz rozmiar")
     private Ingredient size;
 
     @NotNull
     private Ingredient base;
+
+    @NotNull
     private Ingredient cheese;
+
+    @NotNull
     private Ingredient sauces;
 //
 //    public PizzaConverter() {

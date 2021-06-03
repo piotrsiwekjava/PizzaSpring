@@ -64,12 +64,6 @@ public class DesignPizzaController {
   @GetMapping
   public String showDesignForm(Model model) {
 
-//    Ingredient.Type[] types = Ingredient.Type.values();
-//    for (Ingredient.Type type : types) {
-//      model.addAttribute(type.toString().toLowerCase(),
-//          filterByType(sortedIngredient(ingredients), type));
-//    }
-
     return "design";
   }
 
