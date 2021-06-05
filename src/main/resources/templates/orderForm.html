@@ -30,7 +30,7 @@
 
       </ul>
 
-      <h3>Twoje imie i nazwisko</h3>
+      <h3 th:text="#{order.deliverydata=}">Delivery data</h3>
       <label for="deliveryName">Name: </label>
       <input type="text" th:field="*{deliveryName}"/>
       <span class="validationError"
@@ -81,13 +81,14 @@
             th:text="#{order.error-ccCVV}">CC Num Error</span>
       <br/>
 
+      <p></p>
+      <br/>
       <div th:if="${#fields.hasErrors()}">
         <span class="validationError"
               th:text="#{validation.makeupdata}">
         Popraw dane przed zaakceptowaniem.
         </span>
       </div>
-
       <input type="submit" value="Submit order" th:value="#{order.submit}"/>
     </form>
   

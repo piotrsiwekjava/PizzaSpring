@@ -1,0 +1,12 @@
+{"properties": [
+  {
+    "name": "pizza.orders.page-size",
+    "type": "java.lang.String",
+    "description": "Jest to maksymalna ilość wyświetlania zamówień w histori na jedną stronę"
+  },
+  {
+    "name": "pizza.discount.codes",
+    "type": "java.util.Map<String, Integer>",
+    "description": "Mapa dostępnych zniżek procentowych dla zamówień."
+  }
+]}

@@ -1,5 +1,7 @@
-package com.piotrsiwek.pizzaspringproject.pizzaSpring.entity;
+package com.piotrsiwek.pizzaspringproject.pizzaSpring.classes;
 
+import com.piotrsiwek.pizzaspringproject.pizzaSpring.entity.Ingredient;
+import com.piotrsiwek.pizzaspringproject.pizzaSpring.entity.Pizza;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -26,7 +28,7 @@ public class PizzaConverter{
 
     private Date createdAt;
 
-    @ManyToMany(targetEntity=Ingredient.class)
+    @ManyToMany(targetEntity= Ingredient.class)
     @JoinColumn(name = "pizza_id")
     private List<Ingredient> ingredients = new ArrayList<>();
 
@@ -43,21 +45,6 @@ public class PizzaConverter{
 
     @NotNull
     private Ingredient sauces;
-//
-//    public PizzaConverter() {
-//    }
-//
-//    public PizzaConverter(Long id, @NotNull @Size(min = 3, message = "Za krótka nazwa. Podaj taką aby kucharz zrozumiał.") @NotBlank(message = "Musisz podać nazwe pizzy.") String name, Date createdAt, List<Ingredient> ingredients, double price, @NotNull(message = "Wybierz rozmiar") Ingredient size, @NotNull Ingredient base, Ingredient cheese, Ingredient sauces) {
-//        this.id = id;
-//        this.name = name;
-//        this.createdAt = createdAt;
-//        this.ingredients = ingredients;
-//        this.price = price;
-//        this.size = size;
-//        this.base = base;
-//        this.cheese = cheese;
-//        this.sauces = sauces;
-//    }
 
     @PrePersist
     void createdAt() {

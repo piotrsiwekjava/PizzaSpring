@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Pizza Spring</title>
+    <link rel="stylesheet" th:href="@{/styles.css}" />
+  </head>
+  
+  <body>
+  
+    <h1>Discount codes:</h1>
+    
+    <ul>
+      <li th:each="code : ${codes}">
+        Użyj kodu(---) <b>"<span th:text="${code.key}"></span>"</b> dla(----)
+        <span th:text="${code.value}"></span>% twojego zamówienia(----).</li>
+    </ul>
+  
+  </body>
+
+</html>
